@@ -13,14 +13,14 @@ var camposUsuarios = [];
                     mostrarNumeroDePaginas(paginaClick);
                 })
                 $(document).on('click', '.btnPaginaAnterior',function(){
-                    if (paginaAtual - 1 >= 0){
+                    if (parseInt(paginaAtual) - 1 >= 0){
                         paginaClick = parseInt(paginaClick) - 1;
                         mostrarNumeroDePaginas(paginaClick);
                     }
                         
                 })
                 $(document).on('click', '.btnPaginaSeguinte',function(){
-                    if (paginaClick + 1 < numeroDePaginas){
+                    if (parseInt(paginaClick) + 1 < numeroDePaginas){
                         paginaClick = parseInt(paginaClick) + 1;
                         mostrarNumeroDePaginas(paginaClick);
                     }
@@ -30,6 +30,7 @@ var camposUsuarios = [];
                 $(document).on('change', '.selectRowsSelect',function(){
                     numRows = $('.selectRowsSelect').val();
                     paginaAtual = 0;
+                    paginaClick = 0;
                     calcularNumeroDePaginas(paginaAtual);
                 })
                 
@@ -44,7 +45,6 @@ var camposUsuarios = [];
                     $('#' + camposUsuarios[i]).removeClass('displayFlex');
                     
                 }
-                
                 if (qtd - pagina*numRows > numRows){
                     qtd = parseInt(numRows);
                 } else {
