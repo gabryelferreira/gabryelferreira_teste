@@ -1,0 +1,912 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto , sans-serif;
+}
+
+
+
+.deixarInvisivel {
+    display: none;
+}
+
+.roboto {font-family: Roboto, sans-serif;}
+.robotoC {font-family: Roboto Condensed, sans-serif;}
+
+.container {
+    width: 1120px;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1 {
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: lightgray; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #bbb; 
+}
+
+.erroDiv {
+    position: absolute;
+    z-index: 9999;
+    right: 0%;
+    margin: 12px auto 0 auto;
+}
+
+.erroTexto {
+    color: white;
+    font-size: 14px;
+    background-color: rgb(50, 50, 50);
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 7px 4px #777;
+}
+
+.erroTexto::after {
+    content: ' ';
+    border: 10px solid transparent;
+    border-bottom: 10px solid rgb(50, 50, 50);
+    position: absolute;
+    bottom: 100%;
+    left: 20%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+}
+
+.colorGray {
+    color: gray;
+}
+
+.colorWhite {color: white;}
+
+.transparent {background-color: transparent;}
+
+.backImageGreen {background-color: rgb(58, 245, 117);}
+
+.backImageBlue{background-color: rgb(58, 117, 215);}
+
+.backImageRed {background-color: red;}
+
+.backImageLinearGreen {background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);}
+
+.backImageLinearGreen:hover {
+    background-image: linear-gradient(0, #34d058 0%, #28a745 0%);
+}
+
+.backImageLinearBlue {
+    background-image: linear-gradient(-180deg, #38f 0%, #32b 90%);
+}
+
+.backImageLinearBlue:hover {
+    background-image: linear-gradient(0, #38f 0%, #32b 0%);
+}
+
+.backImageLinearRed {
+    background-image: linear-gradient(-180deg, #d20 0%, #522 90%);
+}
+
+.backImageLinearRed:hover {
+    background-image: linear-gradient(0, #f20 0%, #822 0%);
+}
+
+.backgroundPages {
+    background-color: rgb(246, 246, 246);
+}
+
+.selecionado {
+    background-color: red;
+}
+
+.selecionado a {
+    color: white;
+}
+
+.selecionado:hover {
+    background-color: rgb(150, 0, 0);
+}
+
+.tituloTelaMain {
+    margin-left: 15px;
+    margin-bottom: 30px;
+    font-size: 22px;
+    color: black;
+    font-weight: normal;
+}
+
+.configPadrao {
+    padding: 20px 0;
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    background-color: rgb(50, 50, 50);
+    box-sizing: border-box;
+    position: relative;
+    z-index: 9999;
+    box-shadow: 0 3px 2px #777;
+}
+
+.tituloHeader {
+    float: left;
+    padding: 15px;
+}
+
+.tituloHeader h1 {
+    color: white;
+    font-size: 24px;
+    font-family: Roboto Condensed, sans-serif;
+}
+
+header nav {
+    float: right;
+    margin-top: 21px;
+}
+
+header nav ul li {
+    display: inline;
+    list-style: none;
+}
+
+header nav ul li a:hover {
+    color: white;
+}
+
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+header nav ul img {
+    height: 20px;
+    width: 20px;
+}
+
+footer {
+    text-align: center;
+    border-top: 1px solid lightgray;
+}
+
+footer nav {
+    margin-top: 20px;
+}
+
+footer nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    font-size: 12px;
+    color: purple;
+}
+
+footer nav ul li a:hover {
+    text-decoration: underline;
+}
+
+footer h1 {
+    margin: 20px 0;
+    font-size: 12px;
+    font-family: Roboto Condensed, sans-serif;
+    color: gray;
+}
+
+
+.menuResponsive {
+    padding: 12px;
+    float: right;
+    width: 35px;
+    height: 35px;
+}
+
+
+.menuResponsive img {
+    width: 100%;
+    height: 100%;
+    filter: invert(100%);
+    cursor: pointer;
+}
+
+.menuResponsiveOpcoes {
+    position: relative;
+    width: 100%;
+    background-color: rgb(75, 75, 75);
+    border-bottom: 1px solid lightgray;
+}
+
+.menuResponsiveOpcoes a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid lightgray;
+}
+
+
+#this-is-login-body {
+    background-color: rgb(246, 246, 246);
+}
+
+.this-is-login{
+    background-color: rgb(246, 246, 246);
+}
+
+
+.this-is-login img {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 30px;
+    text-align: center;
+    height: 45px;
+    width: 45px;
+}
+
+.this-is-login h1 {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 22px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.erroDadosIncorretos {
+    position: absolute;
+    width: 220px;
+    background-color: rgb(50, 50, 50);
+    border-radius: 10px;
+    padding: 5px 10px;
+    left: 100%;
+    transform: translateY(-85%);
+    box-shadow: 0 7px 4px #777;
+}
+
+.erroDadosIncorretos::after {
+    content: ' ';
+    border: 10px solid transparent;
+    border-right: 10px solid rgb(50, 50, 50);
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.erroDadosIncorretos h1 {
+    width: 80%;
+    font-size: 16px;
+    padding: 0 10px;
+    color: white;
+    text-align: left;
+}
+
+.erroDadosIncorretos p {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(10%, -50%);
+    color: white;
+    cursor: pointer;
+}
+
+
+
+.login {
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.marginTop20 {
+    margin-top: 20px;
+}
+
+.login input[type="text"], .login input[type="password"] {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-weight: 600;
+}
+
+.login input[type="text"]:focus, .login input[type="password"]:focus{
+    border: 2px solid #3f7998;
+}
+
+.login h2 {
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#btnEntrar {
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    border: 1px solid green;
+    background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 1px black;
+    cursor: pointer;
+    -webkit-appearance: none;
+    outline: none;
+    box-shadow: 1px 1px 2px black;
+}
+
+#btnEntrar:hover {
+    background-color: rgb(0, 150, 0);
+    background-image: linear-gradient(0, rgb(0, 150, 0) 0%, rgb(0, 150, 0) 0%);
+}
+
+
+.cadastroForm {
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    position: relative;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    text-align: center;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.cadastroForm h2 {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+
+#btnCadastrar {
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    border: 1px solid royalblue;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 1px black;
+    cursor: pointer;
+    -webkit-appearance: none;
+    outline: none;
+    box-shadow: 1px 1px 2px black;
+}
+
+.erroLogin {
+    color: red;
+    font-size: 14px;
+    font-weight: normal;
+    display: none;
+}
+
+
+
+
+/*CADASTRO DE MOTORISTAS E PASSAGEIROS*/
+
+
+
+.cadastroDiv {
+    display: block;
+    width: 26%;
+    margin: 0 3.65% 36px 3.65%;
+    float: left;
+    position: relative;
+}
+
+
+
+.cadastro h2 {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.cadastroDiv input[type="text"], .cadastroDiv input[type="number"], .cadastroDiv select, .cadastroDiv input[type="date"], .cadastroDiv input[type="password"] {
+    height: 40px;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.cadastroDiv input[type="text"]:focus, .cadastroDiv input[type="number"]:focus, .cadastroDiv select:focus, .cadastroDiv input[type="date"]:focus, .cadastroDiv input[type="password"]:focus {
+    border: 2px solid #3f7998;
+}
+
+.cadastroDivBtn {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    float: left;
+}
+
+.cadastroDivBtn input[type="submit"] {
+    width: 250px;
+    height: 40px;
+    background-color: rgb(0, 190, 0);
+    color: #fff;
+    border: 1px solid green;
+    background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    border-radius: 5px;
+    box-shadow: 1px black;
+    cursor: pointer;
+    -webkit-appearance: none;
+    outline: none;
+    box-shadow: 1px 1px 2px black;
+}
+
+.cadastroDivBtn input[type="submit"]:hover {
+    background-color: rgb(0, 150, 0);
+    background-image: linear-gradient(0, rgb(0, 150, 0) 0%, rgb(0, 150, 0) 0%);
+}
+    
+
+
+
+/*CADASTRO HOME*/
+
+#this-is-body-default {
+    background-color: rgb(246, 246, 246);
+}
+
+.this-is-cadastro h1 {
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    margin: 30px 0;
+    font-weight: 500;
+}
+
+.opcoesCadastro {
+    width: 1000px;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+}
+
+
+
+.opcaoCadastro {
+    margin: auto;
+    width: 270px;
+    background-color: rgb(45, 45, 45);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+
+
+.opcaoCadastro img {
+    width: 90%;
+    height: 135px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.opcaoCadastro input {
+    border-radius: 5px;
+    width: 90%;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    outline: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+}
+
+.opcaoCadastro input:hover {
+    transform: scale(1.05);
+    transition: all 0.5s;
+}
+
+
+/*CONSULTA*/
+.popupAll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 9999;
+}
+
+.fecharPopup {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    color: gray;
+    border: 0;
+    background-color: transparent;
+    font-size: 16px;
+    padding: 12px 15px;
+    outline: none;
+}
+
+.popupInside {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    background-color: white;
+    display: block;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: 1px 1px 6px black;
+}
+
+.popupTitle {
+    position: relative;
+    display: flex;
+    margin-bottom: 0;
+    border-bottom: 1px solid lightgray;
+    
+}
+
+.popupTitle h1 {
+    position: relative;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+
+.popupMessage {
+    position: relative;
+    display: block;
+    padding: 10px;
+}
+
+.popupMessage h1 {
+    width: 100%;
+    position: relative;
+    float: left;
+    font-family: Roboto Condensed, sans-serif;
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.popupMessage h2 {
+    width: 100%;
+    position: relative;
+    float: left;
+    font-weight: normal;
+    font-size: 13px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+
+.btnsPopup {
+    width: 100%;
+    text-align: right;
+}
+
+
+.btnsPopup input {
+    padding: 10px;
+    border-radius: 2px;
+    font-size: 16px;
+    border: 0;
+    float: right;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-family: Roboto Condensed, sans-serif;
+}
+
+
+
+
+.this-is-consulta {
+    width: 1120px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid lightgray;
+    margin: auto;
+    margin-bottom: 30px;
+    overflow-x: scroll;
+}
+
+.consultaTituloPrincipal {
+    display: flex;
+}
+
+.selectRowsSelect {
+    border-radius: 5px;
+    width: 70px;
+    height: 30px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    outline: none;
+}
+
+.selectRowsSelect:focus {
+    border: 2px solid #3f7998;
+}
+
+.consulta {
+    margin: auto;
+    width: 1100px; 
+    border: 1px solid lightgray;
+    display: block;
+    background-color: rgb(255, 255, 255);
+}
+
+.consultaTitulo {
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px 5px 0 0;
+}
+
+.consultaTitulo h1 {
+    font-size: 16px;
+    color: black;
+    text-align: left;
+    padding: 15px 10px;
+    font-family: Roboto Condensed, sans-serif;
+}
+
+.campoTitulo {
+    border-right: 1px solid lightgray;
+}
+
+
+.width10 {width: 10%;}
+.width15 {width: 15%;}
+.width20 {width: 20%;}
+.width25 {width: 25%;}
+.width30 {width: 30%;}
+.width35 {width: 35%;}
+.width40 {width: 40%;}
+.width45 {width: 45%;}
+.width50 {width: 50%;}
+
+.displayFlex {
+    display: flex;
+}
+
+.consultaCampos {
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+}
+
+.consultaCampos:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.campoConsulta {
+    border-right: 1px solid lightgray;
+    overflow: hidden;
+}
+
+.campoConsulta input {
+    float: left;
+    width: 35px;
+    height: 35px;
+    margin: 5px 5px;
+    color: white;
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+}
+
+.campoConsulta select {
+    width: 90%;
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+
+.campoConsulta h1 {
+    float: left;
+    font-size: 16px;
+    padding: 3px 7px;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: left;
+    word-wrap: break-word;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+
+.paginasConsulta {
+    margin: auto;
+    margin-top: 20px;
+    width: 1100px;
+}
+
+.paginasConsulta input {
+    border: 0;
+    border-radius: 5px;
+    padding: 7px 14px;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    margin: 0 2px;
+}
+
+.paginasConsulta input:hover {
+    background-color: dodgerblue;
+    color: white;
+}
+
+
+.verdeh1 {
+    background-color: rgb(0, 160, 0);
+    color: white;
+}
+
+.azulh1 {
+    background-color: dodgerblue;
+    color: white;
+}
+
+
+
+
+
+
+
+/*PAGINA DE ERRO*/
+.this-is-error {
+    text-align: center;
+}
+
+.this-is-error h1 {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.imagemErro {
+    margin: 20px 0;
+}
+
+.this-is-error img {
+    height: 150px;
+    width: 150px;
+}
+
+.this-is-error h2 {
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.this-is-error a {
+    text-decoration: none;
+    color: purple;
+}
+
+.opcaoErro{
+    background-color: transparent;
+    border: 0;
+    color: purple;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.opcaoErro:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+/*REGISTRO DE CORRIDAS */
+
+.registro {
+    display: block;
+    margin: auto;
+}
+
+.registros {
+    display: flex;
+    width: 100%;
+    margin: auto;
+}
+
+
+
+.registroDiv select {
+    width: 250px;
+    height: 40px;
+    margin: auto;
+}
+
+.unidade {
+    position: absolute;
+    top: 35px;
+    left: 7px;
+    color: black;
+}
+
+#valorCorrida {
+    padding: 10px 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
