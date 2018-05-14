@@ -175,8 +175,9 @@ include("Layouts/header2.php");
                 
                 var qtd = parseInt(camposUsuarios.length);
                 for (i = 0; i < qtd; i++){
-                    $('#' + camposUsuarios[i]).removeClass('displayFlex');
                     $('#' + camposUsuarios[i]).addClass('deixarInvisivel');
+                    $('#' + camposUsuarios[i]).removeClass('displayFlex');
+                    
                 }
                 
                 if (qtd - pagina*numRows > numRows){
