@@ -6,7 +6,7 @@ if(!isset($_SESSION['usuario'])){
     header("Location: ../");
 }
 
-include("Layouts/head.php");
+include("Layouts/head2.php");
 include("Layouts/header2.php");
 
 ?>
@@ -64,20 +64,12 @@ include("Layouts/header2.php");
         </form>
         </div>
     </div>
+    
+    <script type="text/javascript" src="../js/errosinvisiveis.js"></script>
+    
     <script>
         
-        var timeOut;
-        var tempoTimeout = 4000;
         
-        //funcao para tornar erros invisiveis
-        function tornarErrosInvisiveis(){
-            $('.erroTexto').addClass('deixarInvisivel');
-        }
-        
-        //funcao para cancelar o timeout de deixar os erros invisíveis
-        function cancelarTimeOut() {
-            clearTimeout(timeOut);
-        }
         
         
         $(document).ready(function(){

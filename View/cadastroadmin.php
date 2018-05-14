@@ -16,7 +16,7 @@ if ($result == 1){
 }
 
 
-include("Layouts/head.php");
+include("Layouts/head2.php");
 include("Layouts/headercadastroadmin.php");
 
 ?>
@@ -57,44 +57,64 @@ include("Layouts/headercadastroadmin.php");
         </form>
         </div>
     </div>
+    
+    <script type="text/javascript" src="../js/errosinvisiveis.js"></script>
+    
     <script>
+        
+        var timeOut;
+        var tempoTimeout = 4000;
+        
+        //funcao para tornar os erros de campos vazios/inválidos invisíveis
+        function tornarErrosInvisiveis(){
+            $('.erroTexto').addClass('deixarInvisivel');
+        }
+        
+        //funcao para cancelar timeout de deixar os erros invisíveis
+        function cancelarTimeOut() {
+            clearTimeout(timeOut);
+        }
+        
+        
         
         //funcao para validar formulario
         function validarFormulario(){
             var usuario = $('#usuario').val();
             var senha = $('#senha').val();
             var senha2 = $('#senha2').val();
+            cancelarTimeOut();
+            tornarErrosInvisiveis();
             
             if (usuario.trim() == ""){
                 $('.erroUsuarioVazio').removeClass('deixarInvisivel');
+                timeOut = setTimeout(tornarErrosInvisiveis, tempoTimeout);
                 return false;
             } else {
-                $('.erroUsuarioVazio').addClass('deixarInvisivel');
                 if (usuario.length > 30){
                     $('.erroUsuarioInvalido').removeClass('deixarInvisivel');
+                    timeOut = setTimeout(tornarErrosInvisiveis, tempoTimeout);
                     return false;
                 } else {
-                    $('.erroUsuarioInvalido').addClass('deixarInvisivel');
                     if (senha.trim() == ""){
                         $('.erroSenhaVazio').removeClass('deixarInvisivel');
+                        timeOut = setTimeout(tornarErrosInvisiveis, tempoTimeout);
                         return false;
                     } else {
-                        $('.erroSenhaVazio').addClass('deixarInvisivel');
                         if (senha.length > 30){
                             $('.erroSenhaInvalido').removeClass('deixarInvisivel');
+                            timeOut = setTimeout(tornarErrosInvisiveis, tempoTimeout);
                             return false;
                         } else {
-                            $('.erroSenhaInvalido').addClass('deixarInvisivel');
                             if (senha2.trim() == ""){
                                 $('.erroSenha2Vazio').removeClass('deixarInvisivel');
+                                timeOut = setTimeout(tornarErrosInvisiveis, tempoTimeout);
                                 return false;
                             } else {
-                                $('.erroSenha2Vazio').addClass('deixarInvisivel');
                                 if (senha != senha2){
                                     $('.erroSenhasDiferentes').removeClass('deixarInvisivel');
+                                    timeOut = setTimeout(tornarErrosInvisiveis, tempoTimeout);
                                     return false;
                                 } else {
-                                    $('.erroSenhasDiferentes').addClass('deixarInvisivel');
                                     return true;
                                 }
                             }
@@ -110,5 +130,6 @@ include("Layouts/headercadastroadmin.php");
         
 
     </script>
-</body>
-</html>
+<?php
+    
+    include("Layouts/footercadastroadmin.php");
