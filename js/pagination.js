@@ -1,16 +1,16 @@
 var campos = [];
-var numeroDePaginas, numRows, paginaAtual, paginaClick, where, what;
+var numeroDePaginas, numRows = 5, paginaAtual = 0, paginaClick = 0;
 var paginationColor = null;
+var pagination = ".pagination";
+var paginationInput = ".pagination input";
+var paginationData = ".pagination-data";
+var paginationSelect = ".pagination-select";
+var select = ".select-pagination-select";
+createPagination();
+createSelect();    
 
-function createPagination(whereIt, whatIt){
-    paginaClick = 0;
-    paginaAtual = 0;
-    numRows = 5;
-    where = whereIt;
-    what = whatIt;
-    $(where).append('<div class="paginasConsulta"></div>');
-    calcularNumeroDePaginas(paginaAtual);
-       
+function createPagination(){
+    calcularNumeroDePaginas(paginaAtual);    
 }
 
 function selectedPagina(){
@@ -30,27 +30,25 @@ function transparent(){
     $('.transparent').css('background', 'transparent');
 }
 
-function deixarInvisivel(){
-    $('.invisivel').css('display', 'none');
-}
 
 function setPaginationColor(color){
     paginationColor = color;
+    createPagination();
 }
 
 
 
 function styleForPagination(){
-    $('.paginasConsulta').css('margin', 'auto');
-    $('.paginasConsulta').css('margin-top', '20px');
-    $('.paginasConsulta input').css('border', '0');
-    $('.paginasConsulta input').css('border-radius', '5px');
-    $('.paginasConsulta input').css('padding', '7px 14px');
-    $('.paginasConsulta input').css('font-size', '16px');
-    $('.paginasConsulta input').css('outline', 'none');
-    $('.paginasConsulta input').css('cursor', 'pointer');
-    $('.paginasConsulta input').css('margin', '0 2px');
-    $(".paginasConsulta input").hover(function() {
+    $(pagination).css('margin', 'auto');
+    $(pagination).css('margin-top', '20px');
+    $(paginationInput).css('border', '0');
+    $(paginationInput).css('border-radius', '5px');
+    $(paginationInput).css('padding', '7px 14px');
+    $(paginationInput).css('font-size', '16px');
+    $(paginationInput).css('outline', 'none');
+    $(paginationInput).css('cursor', 'pointer');
+    $(paginationInput).css('margin', '0 2px');
+    $(paginationInput).hover(function() {
         if (paginationColor == null){
             $(this).css("background-color","dodgerblue");
         } else {
@@ -71,28 +69,28 @@ function updatePagination(){
     calcularNumeroDePaginas(paginaAtual);
 }
 
-function createSelect(whereSelect){
-    $(whereSelect).append('<select class="selectRowsSelect"><option class="foda" value="5">5</option><option value="10">10</option><option value="15">15</option></select>');
+function createSelect(){
+    $(paginationSelect).append('<select class="' + select.split(".")[1] + '"><option value="5">5</option><option value="10">10</option><option value="15">15</option></select>');
     styleForSelect();
 }
 
 function styleForSelect(){
-    $('.selectRowsSelect').css('border-radius', '5px');
-    $('.selectRowsSelect').css('width', '70px');
-    $('.selectRowsSelect').css('height', '30px');
-    $('.selectRowsSelect').css('margin-left', '30px');
-    $('.selectRowsSelect').css('margin-bottom', '20px');
-    $('.selectRowsSelect').css('font-size', '14px');
-    $('.selectRowsSelect').css('outline', 'none');
+    $(select).css('border-radius', '5px');
+    $(select).css('width', '70px');
+    $(select).css('height', '30px');
+    $(select).css('margin-left', '30px');
+    $(select).css('margin-bottom', '20px');
+    $(select).css('font-size', '14px');
+    $(select).css('outline', 'none');
     
     
     
-    $('.selectRowsSelect').focusin(function(){
-        $('.selectRowsSelect').css('border', '2px solid #3f7998');
+    $(select).focusin(function(){
+        $(select).css('border', '2px solid #3f7998');
         
     })
-    $('.selectRowsSelect').focusout(function(){
-        $('.selectRowsSelect').css('border', '1px solid lightgray');
+    $(select).focusout(function(){
+        $(select).css('border', '1px solid lightgray');
     })
     
     
@@ -119,8 +117,8 @@ $(document).ready(function(){
 
     })
 
-    $(document).on('change', '.selectRowsSelect',function(){
-        numRows = $('.selectRowsSelect').val();
+    $(document).on('change', select,function(){
+        numRows = $(select).val();
         paginaAtual = 0;
         paginaClick = 0;
         calcularNumeroDePaginas(paginaAtual);
@@ -131,11 +129,9 @@ $(document).ready(function(){
 function mostrarContentPagina(pagina){
 
     var qtd = parseInt(campos.length);
-
     
-    $(what).map(function() {
-        $(this).addClass('invisivel');
-        $(this).removeClass('displayFlex');
+    $(paginationData).map(function() {
+        $(this).css('display', 'none');
     })
     
     
@@ -145,16 +141,13 @@ function mostrarContentPagina(pagina){
         qtd = parseInt(qtd) - parseInt(pagina*numRows);
     }
     var count = 0;
-    $(what).map(function() {
+    $(paginationData).map(function() {
         if ((count >= parseInt(pagina*numRows)) && (count < parseInt(parseInt(pagina*numRows) + parseInt(qtd)))){
-            $(this).addClass('displayFlex');
-            $(this).removeClass('invisivel');
+            $(this).css('display', 'flex');
         }
         count++;
     })
 
-    deixarInvisivel();
-    displayFlex();
 
 }//function
 
@@ -170,11 +163,11 @@ function showPagination(pagina){
     $('#btnNumeroPagina' + paginaAtual).removeClass('selectedPagina');
     $('#btnNumeroPagina' + paginaAtual).addClass('transparent');
     paginaAtual = pagina;
-    $('.paginasConsulta').html('<input type="button" id="btnPagina-1" class="btnPaginaAnterior transparent" value="Anterior">');
+    $(pagination).html('<input type="button" id="btnPagina-1" class="btnPaginaAnterior transparent" value="Anterior">');
     for (i = 0; i < numeroDePaginas; i++){
-        $('.paginasConsulta').append('<input type="button" class="btnPagina transparent" id="btnNumeroPagina' + (i) + '" value="' + (i+1) + '">');
+        $(pagination).append('<input type="button" class="btnPagina transparent" id="btnNumeroPagina' + (i) + '" value="' + (i+1) + '">');
     }
-    $('.paginasConsulta').append('<input type="button" id="btnPagina-1" class="btnPaginaSeguinte transparent" value="Próxima">');
+    $(pagination).append('<input type="button" id="btnPagina-1" class="btnPaginaSeguinte transparent" value="Próxima">');
     $('#btnNumeroPagina' + paginaAtual).removeClass('transparent');
     $('#btnNumeroPagina' + paginaAtual).addClass('selectedPagina');
     selectedPagina();
@@ -184,11 +177,10 @@ function showPagination(pagina){
 function calcularNumeroDePaginas(pagina){
     campos = [];
     var count = 0;
-    $(what).map(function() {
+    $(paginationData).map(function() {
         count = parseInt(count) + 1;
         campos.push(count);
     })
-    deixarInvisivel();
     numeroDePaginas = campos.length/numRows;
     numeroDePaginas = numeroDePaginas.toString();
     var virgula = false;
@@ -206,7 +198,6 @@ function calcularNumeroDePaginas(pagina){
     } else {
         numeroDePaginas = parseInt(numeroDePaginas);
     }
-
     if (pagina >= numeroDePaginas){
         pagina -= 1;
     }
