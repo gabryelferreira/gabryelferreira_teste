@@ -5,7 +5,7 @@ class Database {
     public static $dbName = "dbCorrida";
     public static $username = "root";
     public static $password = "";
-    public static $baseurl = "http://localhost/corridas";
+    public static $baseurl = "http://localhost/gabryelferreira_teste";
     public static $results;
     public static $resultRetorno = array();
     
