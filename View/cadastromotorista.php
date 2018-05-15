@@ -73,7 +73,6 @@ include("Layouts/header2.php");
         </div>
     </div>
     
-    <script type="text/javascript" src="../js/main.js"></script>
     <script type="text/javascript" src="../js/validarformulariousuario.js"></script>
     <script type="text/javascript" src="../js/errosinvisiveis.js"></script>
     
