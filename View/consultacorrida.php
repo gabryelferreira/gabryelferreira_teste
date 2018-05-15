@@ -15,11 +15,6 @@ include("Layouts/header2.php");
     <div class="this-is-consulta configPadrao backgroundPages">
         <div class="consultaTituloPrincipal">
             <h1 class="tituloTelaMain">Corridas</h1>
-            <select class="selectRowsSelect">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-            </select>
         </div>
         <div class="consulta">
             <div class="consultaTitulo">
@@ -40,7 +35,7 @@ include("Layouts/header2.php");
             <?php
             $results = ConsultaCorridaController::GetCorridas();
             foreach($results as $result){
-                echo '<div id="consultaCampos'.$result[0].'" class="consultaCampos">
+                echo '<div id="consultaCampos'.$result[0].'" class="consultaCampos deixarInvisivel">
                 <div class="width35 campoConsulta">
                     <h1 class="azulh1">'.$result[1].'</h1>
                 </div>
@@ -57,9 +52,7 @@ include("Layouts/header2.php");
             }
             ?>
         </div>
-        <div class="paginasConsulta">
         
-        </div>
     </div>
     <div class="popupConfirmar popupAll deixarInvisivel">
 
@@ -101,13 +94,13 @@ include("Layouts/header2.php");
         </div>
     </div>
     
-    <script type="text/javascript" src="../js/paginasconsulta.js"></script>
+    <script type="text/javascript" src="../js/pagination.js"></script>
     <script type="text/javascript" src="../js/consultamain.js"></script>
     
     <script>
         
-        
-        
+            createPagination(".this-is-consulta", ".consultaCampos");
+            createSelect('.consultaTituloPrincipal');
         
         
         
@@ -145,7 +138,7 @@ include("Layouts/header2.php");
                         success: function(data){
                             if (data == "1"){
                                 $('#consultaCampos' + id[1]).remove();
-                                calcularNumeroDePaginas(paginaAtual);
+                                updatePagination();
                             } else {
                                 $('.popupErro').removeClass('deixarInvisivel');
                             }

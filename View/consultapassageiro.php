@@ -16,11 +16,7 @@ include("Layouts/header2.php");
     <div class="this-is-consulta configPadrao backgroundPages">
         <div class="consultaTituloPrincipal">
             <h1 class="tituloTelaMain">Passageiros</h1>
-            <select class="selectRowsSelect">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-            </select>
+
         </div>
         
         <div class="consulta">
@@ -65,9 +61,6 @@ include("Layouts/header2.php");
             }
             ?>
         </div>
-        <div class="paginasConsulta">
-        
-        </div>
     </div>
     
     <div class="popupConfirmar popupAll deixarInvisivel">
@@ -111,10 +104,13 @@ include("Layouts/header2.php");
         </div>
     </div>
     
-        <script type="text/javascript" src="../js/paginasconsulta.js"></script>
+        <script type="text/javascript" src="../js/pagination.js"></script>
         <script type="text/javascript" src="../js/consultamain.js"></script>
         
         <script>
+            
+            createPagination('.this-is-consulta', '.consultaCampos');
+            createSelect('.consultaTituloPrincipal');
              
             var id;
             
@@ -149,7 +145,7 @@ include("Layouts/header2.php");
                         success: function(data){
                             if (data == 1){
                                 $('#consultaCampos' + id[1]).remove();
-                                calcularNumeroDePaginas(paginaClick);
+                                updatePagination();
                             } else {
                                 $('.popupErro').removeClass('deixarInvisivel');
                             }
