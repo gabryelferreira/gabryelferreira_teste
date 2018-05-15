@@ -121,6 +121,13 @@
         padding-right: 5%;
     }
     
+    .cadastroForm {
+        width: 89%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    
     .cadastroDivBtn input[type="submit"] {
         width: 80%;
     }
