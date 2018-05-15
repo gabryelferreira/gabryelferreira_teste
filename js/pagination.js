@@ -174,7 +174,7 @@ function showPagination(pagina){
     for (i = 0; i < numeroDePaginas; i++){
         $('.paginasConsulta').append('<input type="button" class="btnPagina transparent" id="btnNumeroPagina' + (i) + '" value="' + (i+1) + '">');
     }
-    $('.paginasConsulta').append('<input type="button" id="btnPagina-1" class="btnPaginaSeguinte transparent" value="Próximo">');
+    $('.paginasConsulta').append('<input type="button" id="btnPagina-1" class="btnPaginaSeguinte transparent" value="Próxima">');
     $('#btnNumeroPagina' + paginaAtual).removeClass('transparent');
     $('#btnNumeroPagina' + paginaAtual).addClass('selectedPagina');
     selectedPagina();
