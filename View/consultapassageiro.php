@@ -16,7 +16,7 @@ include("Layouts/header2.php");
     <div class="this-is-consulta configPadrao backgroundPages">
         <div class="consultaTituloPrincipal">
             <h1 class="tituloTelaMain">Passageiros</h1>
-
+            <div class="pagination-select"></div>
         </div>
         
         <div class="consulta">
@@ -41,7 +41,7 @@ include("Layouts/header2.php");
             <?php
             $results = ConsultaPassageiroController::GetPassageiros();
             foreach($results as $result){
-                echo '<div id="consultaCampos'.$result[0].'" class="consultaCampos deixarInvisivel">
+                echo '<div id="consultaCampos'.$result[0].'" class="consultaCampos pagination-data deixarInvisivel">
                 <div class="width45 campoConsulta">
                     <h1>'.$result[1].'</h1>
                 </div>
@@ -60,6 +60,8 @@ include("Layouts/header2.php");
             </div>';
             }
             ?>
+        </div>
+        <div class="pagination">
         </div>
     </div>
     
@@ -109,8 +111,8 @@ include("Layouts/header2.php");
         
         <script>
             
-            createPagination('.this-is-consulta', '.consultaCampos');
-            createSelect('.consultaTituloPrincipal');
+           
+            
              
             var id;
             
