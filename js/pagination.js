@@ -1,5 +1,6 @@
 var campos = [];
-var numeroDePaginas, numRows = 5, paginaAtual = 0, paginaClick = 0;
+var numeroDePaginas, numRows = 5, paginaAtual = 0, paginaClick = 0, maxPages = 7;
+var firstPage, lastPage;
 var paginationColor = null;
 var pagination = ".pagination";
 var paginationInput = ".pagination input";
@@ -36,6 +37,10 @@ function setPaginationColor(color){
     createPagination();
 }
 
+function setMaxPages(max){
+    maxPages = max;
+    calcularNumeroDePaginas(paginaAtual);
+}
 
 
 function styleForPagination(){
@@ -159,12 +164,40 @@ function mostrarNumeroDePaginas(pagina){
 
 }//function
 
+function calcularPaginas(){
+    if (paginaAtual < parseInt(maxPages)/2){
+        firstPage = 0;
+        if (maxPages > numeroDePaginas){
+            lastPage = numeroDePaginas;
+        } else {
+            lastPage = maxPages;
+        }
+    } else {
+        
+        if (parseInt(paginaAtual) + parseInt(maxPages)/2 < numeroDePaginas){
+            
+            if (parseInt(maxPages)%2 == 1){
+                firstPage = parseInt(paginaAtual) - (parseInt(maxPages) - 1)/2;
+                lastPage = parseInt(paginaAtual) + (parseInt(maxPages) - 1)/2 + 1;
+            } else {
+                firstPage = parseInt(paginaAtual) - (parseInt(maxPages))/2;
+                lastPage = parseInt(paginaAtual) + (parseInt(maxPages))/2;
+            }
+        } else {
+            lastPage = numeroDePaginas;
+            firstPage = numeroDePaginas - maxPages;
+        }
+    }
+}
+
+
 function showPagination(pagina){
     $('#btnNumeroPagina' + paginaAtual).removeClass('selectedPagina');
     $('#btnNumeroPagina' + paginaAtual).addClass('transparent');
     paginaAtual = pagina;
     $(pagination).html('<input type="button" id="btnPagina-1" class="btnPaginaAnterior transparent" value="Anterior">');
-    for (i = 0; i < numeroDePaginas; i++){
+    calcularPaginas();
+    for (i = firstPage; i < lastPage; i++){
         $(pagination).append('<input type="button" class="btnPagina transparent" id="btnNumeroPagina' + (i) + '" value="' + (i+1) + '">');
     }
     $(pagination).append('<input type="button" id="btnPagina-1" class="btnPaginaSeguinte transparent" value="Próxima">');
