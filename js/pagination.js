@@ -1,5 +1,5 @@
 var campos = [];
-var numeroDePaginas, numRows = 5, paginaAtual = 0, paginaClick = 0, maxPages = 7;
+var numeroDePaginas, numRows = 5, paginaAtual = 0, paginaClick = 0, maxPages = 5;
 var firstPage, lastPage;
 var paginationColor = null;
 var pagination = ".pagination";
@@ -173,19 +173,24 @@ function calcularPaginas(){
             lastPage = maxPages;
         }
     } else {
-        
         if (parseInt(paginaAtual) + parseInt(maxPages)/2 < numeroDePaginas){
             
             if (parseInt(maxPages)%2 == 1){
+                
                 firstPage = parseInt(paginaAtual) - (parseInt(maxPages) - 1)/2;
                 lastPage = parseInt(paginaAtual) + (parseInt(maxPages) - 1)/2 + 1;
             } else {
+                
                 firstPage = parseInt(paginaAtual) - (parseInt(maxPages))/2;
                 lastPage = parseInt(paginaAtual) + (parseInt(maxPages))/2;
             }
         } else {
             lastPage = numeroDePaginas;
-            firstPage = numeroDePaginas - maxPages;
+            firstPage = parseInt(numeroDePaginas) - parseInt(maxPages);
+            if (firstPage < 0){
+                firstPage = 0;
+            }
+            
         }
     }
 }
