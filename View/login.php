@@ -55,6 +55,7 @@ include("Layouts/head.php");
         </form>
         
         <?php
+        //funcao que retorna a quantidade de administradores do sistema
         $results = Admin::GetCountAdmin();
         foreach($results as $result){
             if ($result[0] == 0)
@@ -63,6 +64,7 @@ include("Layouts/head.php");
                 $result = 1;
             
         } 
+        //caso nao tenha nenhum administrador, o sistema libera a criação de uma conta, pois o sistema é composto por apenas um admin
         if ($result == 0){
             echo '<div class="cadastroForm"> 
                 <h2>Não possui uma conta?</h2>
