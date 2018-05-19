@@ -2,7 +2,7 @@ var campos = [];
 var numeroDePaginas, numRows = 5, paginaAtual = 0, paginaClick = 0, maxPages = 5;
 var firstPage, lastPage;
 var paginationColor = 'dodgerblue';
-var paginationFont = 'Roboto, sans-serif';
+var paginationFont = 'Roboto Condensed, sans-serif';
 var pagination = ".pagination";
 var paginationInput = ".pagination input";
 var paginationData = ".pagination-data";
