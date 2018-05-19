@@ -4,7 +4,7 @@ session_start();
 
 
 if(!isset($_SESSION['usuario'])){
-    header("Location: /corridas/");
+    header("Location: ./");
 }
 
 include("Layouts/head.php");

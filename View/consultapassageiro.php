@@ -37,7 +37,7 @@ include("Layouts/header2.php");
                     <h1>Ações</h1>
                 </div>
             </div>
-
+            <div class="loading"></div>
             <?php
             $results = ConsultaPassageiroController::GetPassageiros();
             foreach($results as $result){
@@ -105,13 +105,15 @@ include("Layouts/header2.php");
 
         </div>
     </div>
-    
+        <script type="text/javascript" src="../js/loading.js"></script>
         <script type="text/javascript" src="../js/pagination.js"></script>
         <script type="text/javascript" src="../js/consultamain.js"></script>
         
         <script>
             
-           
+            window.addEventListener("load", function(){
+                $(loading).css('display', 'none');
+            })
             
              
             var id;
